@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DreamActor-M2: Universal Character Image Animation via Spatiotemporal In-Context Learning.">
+  <meta name="keywords" content="Animation, Diffusion Transformer, Video Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DreamActor-M2: Universal Character Image Animation via Spatiotemporal In-Context Learning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .section {
+      margin-top: 0rem; /* 增加章节之间的间距 */
+      margin-bottom: 0rem; /* 增加章节之间的间距 */
+    }
+
+    .content {
+      margin-bottom: 0rem; /* 减小章节内的间距 */
+    }
+
+    h2.title {
+      margin-bottom: 0rem; /* 恢复章节标题和正文之间的间距 */
+    }
+  </style>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title"><span class="rainbow-text">DreamActor-M2</span>: Universal Character Image Animation via Spatiotemporal In-Context Learning</h1>
+          <h1 class="title is-4 publication-title"></h1>
+          <div class="is-size-5 publication-authors author-list">
+
+            <span class="author-block">
+              <a href="">Mingshuang Luo</a><sup>123,*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Shuang Liang</a><sup>1,*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Zhengkun Rong</a><sup>1,*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Yuxuan Luo</a><sup>1,†</sup>,
+            </span>
+            <span class="author-block">
+              <!-- <a href="https://scholar.google.com/citations?hl=en&user=BIixVT0AAAAJ">Tianshu Hu</a><sup>*†</sup> -->
+              <a href="">Tianshu Hu</a><sup>1,§</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Ruibing Hou</a><sup>2,§</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Hong Chang</a><sup>23</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Yong Li</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Yuan Zhang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Mingyuan Gao</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors affiliation">
+            <span class="author-block"><sup>1</sup>Bytedance Intelligent Creation</span>,
+            <!-- <br> -->
+            <span class="author-block"><sup>2</sup>Key Lab of Intell. Info. Process., ICT, CAS</span>,
+            <br>
+            <span class="author-block"><sup>3</sup>University of Chinese Academy of Sciences</span>,
+            <!-- <br> -->
+            <span class="author-block"><sup>4</sup>Southeast University</span>
+          </div>
+
+          <div class="is-size-6 publication-authors annotations">
+            <span class="eql-cntrb"><sup>*</sup>Equal Contribution</span>
+            <span class="eql-cntrb"><sup>†</sup>Project Lead</span>
+            <span class="eql-cntrb"><sup>§</sup>Corresponding Authors</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Hugging Face Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    🤗
+                    <!-- <i class="fab fa-hugging-face"></i> -->
+                  </span>
+                  <span>Hugging Face</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-justified">
+        <p>
+          We introduce <span class="dnerf">DreamActor-M2</span>, a universal character image animation framework that reformulates motion conditioning as a spatiotemporal in-context learning task.
+          Our design harnesses the inherent generative priors of video foundation models while facilitating a critical evolution toward <strong>pose-free, end-to-end transfer directly from raw videos</strong>. 
+          This paradigm eliminates the need for explicit pose estimation, enabling <span class="dnerf">DreamActor-M2</span> to achieve exceptional generalization and high-fidelity results across diverse and complex scenarios.
+        </p>
+      </h2>
+
+      <!-- 第一行 -->
+      <div id="results-carousel-v" class="results-carousel">
+        <div class="item">
+          <video id="teaser-v1" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/hoi_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-v2" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/multi_5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-h1" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/hoi_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-h3" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/human2nonhuman_1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <!-- 第二行 -->
+      <div id="results-carousel-h" class="carousel results-carousel">
+        <div class="item">
+          <video id="teaser-v3" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/nonhuman2human_4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-v4" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/nonhuman2human_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-h1" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/hoi_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-h4" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/nonhuman2nonhuman_6.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <!-- 第三行 -->
+      <div id="results-carousel-h3" class="carousel results-carousel">
+        <div class="item">
+          <video id="teaser-v5" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/nonhuman2nonhuman_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-v6" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/nonhuman2nonhuman_4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-h2" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/multi_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-h5" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/multi_7.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section bg-gray-100" style="margin-bottom: 1.5rem;">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Character image animation aims to synthesize high-fidelity videos by transferring motion from a driving sequence to a static reference image. 
+            Despite recent advancements, existing methods suffer from two fundamental challenges: 
+            (1) suboptimal motion injection strategies that lead to a trade-off between identity preservation and motion consistency, manifesting as a "see-saw", and
+            (2) an over-reliance on explicit pose priors (e.g., skeletons), which inadequantely capture intricate dynamics and hinder generalization to arbitrary, non-humanoid characters.
+            To address these challenges, we present <span class="dnerf">DreamActor-M2</span>, a universal animation framework that reimagines motion conditioning as an <em>in-context</em> learning problem. 
+            Our approach follows a two-stage paradigm. First, we bridge the input modality gap by fusing reference appearance and motion cues into a unified latent space, enabling the model to jointly reason about spatial identity and  temporal dynamics by leveraging the generative prior of foundational models. 
+            Second, we introduce a self-bootstrapped data synthesis pipeline that curates pseudo cross-identity training pairs, facilitating a seamless transition from pose-dependent control to direct, end-to-end RGB-driven animation. 
+            This strategy significantly enhances generalization across diverse characters and motion scenarios.
+            To facilitate comprehensive evaluation, we further introduce <em>AWBench</em>, a versatile benchmark encompassing a wide spectrum  of characters categories and motion types.
+            Extensive experiments demonstrate that DreamActor-M2 achieves state-of-the-art performance, delivering superior visual fidelity and robust cross-domain generalization.
+
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Method Illustration. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">Method Overview</h2>
+        <img src="./static/images/overview.png"
+         class="interpolation-image"
+         alt="Interpolate start reference image."/>
+        <div class="content has-text-centered">
+        <p>
+          The schematic overview of proposed <span class="dnerf">DreamActor-M2</span>.
+        </p>          
+      </div>
+    </div>
+    <!--/ Method Illustration. -->
+  </div>
+</section>
+
+<section class="section" style="margin-top: 0.5rem; margin-bottom: 0; padding-bottom: 1rem;">
+  <div class="container is-fullhd">
+    <!-- Demo Gallary Section -->
+    <h2 class="title is-3 has-text-centered">Demo Gallary</h2>
+
+    <!-- Charater Images Subsection -->
+    <div class="content has-text-justified" style="margin-top: 3rem;">
+      <p class="is-size-5">
+        <strong class="section-title"><span class="dnerf">CHARACTER IMAGES:</span></strong> 
+        <span class="dnerf">DreamActor-M2</span> achieves exceptional versatility by animating a broad spectrum of subjects, ranging from realistic humans to stylized cartoons, and even diverse animal species.
+      </p>
+    </div>
+    <div id="character-carousel" class="carousel results-carousel">
+      <div class="item">
+        <video id="character1" autoplay controls muted loop playsinline>
+          <source src="./static/videos/character_images/human2nonhuman_4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="character2" autoplay controls muted loop playsinline>
+          <source src="./static/videos/character_images/human2nonhuman_5.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="character3" autoplay controls muted loop playsinline>
+          <source src="./static/videos/character_images/human2human_1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="character4" autoplay controls muted loop playsinline>
+          <source src="./static/videos/character_images/human2nonhuman_2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="character5" autoplay controls muted loop playsinline>
+          <source src="./static/videos/character_images/human2nonhuman_6.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="character6" autoplay controls muted loop playsinline>
+          <source src="./static/videos/character_images/human2nonhuman_7.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="character7" autoplay controls muted loop playsinline>
+          <source src="./static/videos/character_images/human2nonhuman_3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="character9" autoplay controls muted loop playsinline>
+          <source src="./static/videos/character_images/human2human_2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="character10" autoplay controls muted loop playsinline>
+          <source src="./static/videos/character_images/human2human_3.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Reference Videos Subsection -->
+    <div class="content has-text-justified" style="margin-top: 1.5rem;">
+      <p class="is-size-5">
+        <strong class="section-title"><span class="dnerf">REFERENCE VIDEOS:</span></strong> 
+        <span class="dnerf">DreamActor-M2</span> demonstrates robust end-to-end generalization to non-human motion signals, enabling seamless motion transfers without relying on any intermediate pose priors.
+      </p>
+    </div>
+    <div id="reference-carousel" class="carousel results-carousel">
+      <div class="item">
+        <video id="reference1" autoplay controls muted loop playsinline>
+          <source src="./static/videos/reference_videos/nonhuman2human_3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="reference2" autoplay controls muted loop playsinline>
+          <source src="./static/videos/reference_videos/nonhuman2nonhuman_1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="reference3" autoplay controls muted loop playsinline>
+          <source src="./static/videos/reference_videos/nonhuman2nonhuman_8.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="reference4" autoplay controls muted loop playsinline>
+          <source src="./static/videos/reference_videos/nonhuman2nonhuman_9.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="reference5" autoplay controls muted loop playsinline>
+          <source src="./static/videos/reference_videos/nonhuman2nonhuman_2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="reference6" autoplay controls muted loop playsinline>
+          <source src="./static/videos/reference_videos/nonhuman2nonhuman_5.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="reference5" autoplay controls muted loop playsinline>
+          <source src="./static/videos/reference_videos/nonhuman2nonhuman_7.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="reference6" autoplay controls muted loop playsinline>
+          <source src="./static/videos/reference_videos/nonhuman2human_2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Multiples Subsection -->
+    <div class="content has-text-justified" style="margin-top: 1.5rem;">
+      <p class="is-size-5">
+        <strong class="section-title"><span class="dnerf">MULTIPLE CHARACTERS:</span></strong> 
+        <span class="dnerf">DreamActor-M2</span> effectively synchronizes motion across multiple distinct characters or maps complex multi-person dynamics to new groups while maintaining structural integrity.
+      </p>
+    </div>
+    <div id="multiples-carousel" class="carousel results-carousel">
+      <div class="item">
+        <video id="multiples1" autoplay controls muted loop playsinline>
+          <source src="./static/videos/multiples/multi_2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="multiples2" autoplay controls muted loop playsinline>
+          <source src="./static/videos/multiples/multi_9.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="multiples3" autoplay controls muted loop playsinline>
+          <source src="./static/videos/multiples/multi_6.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="multiples4" autoplay controls muted loop playsinline>
+          <source src="./static/videos/multiples/multi_3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="multiples5" autoplay controls muted loop playsinline>
+          <source src="./static/videos/multiples/multi_8.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Human-Object Interactions Subsection -->
+    <div class="content has-text-justified" style="margin-top: 1.5rem;">
+      <p class="is-size-5">
+        <strong class="section-title"><span class="dnerf">HUMAN-OBJECT INTERACTIONS:</span></strong> 
+        Our end-to-end paradigm enables <span class="dnerf">DreamActor-M2</span> to master intricate human-object interactions, preserving critical spatial and semantic details that are typically lost in pose-estimated representations.
+      </p>
+    </div>
+    <div id="hoi-carousel" class="carousel results-carousel">
+      <div class="item">
+        <video id="hoi1" autoplay controls muted loop playsinline>
+          <source src="./static/videos/hoi/hoi_4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="hoi2" autoplay controls muted loop playsinline>
+          <source src="./static/videos/hoi/hoi_5.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="hoi3" autoplay controls muted loop playsinline>
+          <source src="./static/videos/hoi/hoi_6.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="hoi4" autoplay controls muted loop playsinline>
+          <source src="./static/videos/hoi/hoi_7.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="hoi5" autoplay controls muted loop playsinline>
+          <source src="./static/videos/hoi/hoi_8.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="hoi6" autoplay controls muted loop playsinline>
+          <source src="./static/videos/hoi/hoi_9.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Shots Subsection -->
+    <div class="content has-text-justified" style="margin-top: 1.5rem;">
+      <p class="is-size-5">
+        <strong class="section-title"><span class="dnerf">CROSS SHOTS:</span></strong> 
+        By fully harnessing the intrinsic generative priors of foundation models, <span class="dnerf">DreamActor-M2</span> excels in cross-morphology mapping, adaptively synthesizing missing motions or pruning redundant signals to align with the target shot requirements.
+      </p>
+    </div>
+    <div id="shots-carousel" class="carousel results-carousel">
+      <div class="item">
+        <video id="shots1" autoplay controls muted loop playsinline>
+          <source src="./static/videos/shots/halfbody2fullbody_3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="shots2" autoplay controls muted loop playsinline>
+          <source src="./static/videos/shots/halfbody2fullbody_2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="shots3" autoplay controls muted loop playsinline>
+          <source src="./static/videos/shots/fullbody2halfbody_1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="shots4" autoplay controls muted loop playsinline>
+          <source src="./static/videos/shots/fullbody2halfbody_3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="shots5" autoplay controls muted loop playsinline>
+          <source src="./static/videos/shots/fullbody2halfbody_2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="shots6" autoplay controls muted loop playsinline>
+          <source src="./static/videos/shots/halfbody2fullbody_1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Complex Motions Subsection -->
+    <div class="content has-text-justified" style="margin-top: 1.5rem;">
+      <p class="is-size-5">
+        <strong class="section-title"><span class="dnerf">COMPLEX MOTIONS:</span></strong> 
+        By extracting motion cues directly from raw RGB videos, <span class="dnerf">DreamActor-M2</span> accurately captures fine-grained and highly dynamic motion patterns.
+      </p>
+    </div>
+    <div id="complex-carousel" class="carousel results-carousel">
+      <div class="item">
+        <video id="complex1" autoplay controls muted loop playsinline>
+          <source src="./static/videos/complex_motions/complex_1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="complex2" autoplay controls muted loop playsinline>
+          <source src="./static/videos/complex_motions/complex_2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="complex3" autoplay controls muted loop playsinline>
+          <source src="./static/videos/complex_motions/complex_3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="complex4" autoplay controls muted loop playsinline>
+          <source src="./static/videos/complex_motions/complex_4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="complex5" autoplay controls muted loop playsinline>
+          <source src="./static/videos/complex_motions/complex_5.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section" style="margin-top: 0.5rem; margin-bottom: 0; padding-bottom: 1rem;">
+  <div class="container is-fullhd">
+
+    <!-- <h2 class="title is-3">Controllability and Robustness</h2>
+
+    <div id="control-carousel" class="carousel results-carousel">
+      <div class="item control-item">
+        <div class="content has-text-justified">
+          <p class="is-size-4">
+            Our method supports to only transfer a part of the motion, such as facial expressions and head movements.
+          </p>
+        </div>
+        <video id="control1" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/control-1.mov" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="item control-item">
+        <div class="content has-text-justified">
+          <p class="is-size-4">
+            Our complementary visual guidance ensures better temporal consistency, particularly for human poses not observed in the reference.
+          </p>
+        </div>
+        <video id="control5" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/control-5.mov" type="video/mp4">
+        </video>
+      </div>
+    </div> -->
+
+
+    <h2 class="title is-3" style="margin-top: 1rem; text-align: center;">Video Comparison</h2>
+    
+    <!-- 添加描述文字 -->
+    <div class="content has-text-justified" style="margin-bottom: 0.25rem;">
+      <p class="is-size-5">
+        Our method generates results with fine-grained motions, identity preservation, temporal consistency and high fidelity.
+      </p>
+    </div>
+
+    <div id="portrait-carousel" class="carousel results-carousel">
+      <div class="item">
+        <video id="portrait1" autoplay controls muted loop playsinline>
+          <source src="./static/videos/sota_comparisons/comparison_1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="portrait2" autoplay controls muted loop playsinline>
+          <source src="./static/videos/sota_comparisons/comparison_2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="portrait3" autoplay controls muted loop playsinline>
+          <source src="./static/videos/sota_comparisons/comparison_3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="portrait4" autoplay controls muted loop playsinline>
+          <source src="./static/videos/sota_comparisons/comparison_4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="portrait5" autoplay controls muted loop playsinline>
+          <source src="./static/videos/sota_comparisons/comparison_5.mov" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="portrait6" autoplay controls muted loop playsinline>
+          <source src="./static/videos/sota_comparisons/comparison_6.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="portrait7" autoplay controls muted loop playsinline>
+          <source src="./static/videos/sota_comparisons/comparison_7.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX" style="margin-top: 0.5rem;">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{luo2025dreamactor,
+  title={DreamActor-M1: Holistic, Expressive and Robust Human Image Animation with Hybrid Guidance},
+  author={Luo, Yuxuan and Rong, Zhengkun and Wang, Lizhen and Zhang, Longhao and Hu, Tianshu and Zhu, Yongming},
+  journal={arXiv preprint arXiv:2504.01724},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-4">Ethics Concerns</h2>
+    <p>
+      The images and videos used in demos are sourced from public domains or generated by models, and are intended solely to showcase the capabilities of this research. Please contact us (hutianshu007@gmail.com) if there are any concerns, and we will delete it in time.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
+

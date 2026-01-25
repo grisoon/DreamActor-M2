@@ -1,0 +1,540 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* Gray background for sections */
+.bg-gray-100 {
+  background-color: #f5f5f5;
+}
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 1rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.teaser h2 {
+  margin-bottom: 1rem;
+}
+
+.teaser p {
+  margin-bottom: 1rem;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+/* 作者列表样式 */
+.author-list {
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Affiliation样式 */
+.affiliation {
+  color: #000;
+  margin-top: 1em;
+  line-height: 1.4;
+}
+
+/* 注解样式 */
+.annotations {
+  color: #666;
+  margin-top: 0.8em;
+  font-style: normal;
+  font-size: 0.9em;
+}
+
+/* 调整注解中的间距 */
+.annotations .eql-cntrb {
+  margin-right: 1.5em;
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  font-size: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+.results-carousel video {
+  margin: 0;
+  object-fit: contain;
+}
+
+.video-caption {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+  color: #333;
+  font-size: 1rem;
+  font-size: 1rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Teaser轮播图样式 */
+/* 第一行：展示v1-v6视频，显示所有视频 */
+#results-carousel-v {
+  height: 210px;
+  overflow: hidden;
+  margin-bottom: 2px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+#results-carousel-v .item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  background: none;
+  box-sizing: border-box;
+}
+
+#results-carousel-v video {
+  flex: 1;
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+/* 第二行：展示h1, h2视频，显示所有视频 */
+#results-carousel-h {
+  height: 210px;
+  overflow: hidden;
+  margin-bottom: 2px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+#results-carousel-h .item {
+  height: 100%;
+  /* flex: 1; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  background: none;
+  box-sizing: border-box;
+}
+
+#results-carousel-h video {
+  flex: 1;
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+/* 第三行：展示h3, h4, h5视频，显示所有视频 */
+/* 第一行：展示v1-v6视频，显示所有视频 */
+#results-carousel-h3 {
+  height: 195px;
+  overflow: hidden;
+  margin-bottom: 2px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+#results-carousel-h3 .item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  background: none;
+  box-sizing: border-box;
+}
+
+#results-carousel-h3 video {
+  flex: 1;
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+/* 针对Video Comparison部分的轮播图 */
+#portrait-carousel {
+  height: 340px;
+  overflow: hidden;
+}
+
+#portrait-carousel .item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+}
+
+#portrait-carousel video {
+  max-height: 340px;
+  width: 98%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* 针对Demo Gallery部分的轮播图 */
+/* Shots子章节 */
+#shots-carousel {
+  height: 420px;
+  overflow: hidden;
+}
+
+#shots-carousel .item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+}
+
+#shots-carousel video {
+  flex: 1;
+  width: 98%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Charater Images子章节 */
+#character-carousel {
+  height: 420px;
+  overflow: hidden;
+}
+
+#character-carousel .item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+}
+
+#character-carousel video {
+  flex: 1;
+  width: 98% !important;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+  height: auto !important;
+}
+
+/* Reference Videos子章节 */
+#reference-carousel {
+  height: 420px;
+  overflow: hidden;
+}
+
+#reference-carousel .item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+}
+
+#reference-carousel video {
+  flex: 1;
+  width: 98% !important;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+  height: auto !important;
+}
+
+/* Multiples子章节 */
+#multiples-carousel {
+  height: 420px;
+  overflow: hidden;
+}
+
+#multiples-carousel .item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+}
+
+#multiples-carousel video {
+  flex: 1;
+  width: 98% !important;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+  height: auto !important;
+}
+
+/* Complex Motions子章节 */
+#complex-carousel {
+  height: 420px;
+  overflow: hidden;
+}
+
+#complex-carousel .item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+}
+
+#complex-carousel video {
+  flex: 1;
+  width: 98% !important;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+  height: auto !important;
+}
+
+/* Human-Object Interactions子章节 */
+#hoi-carousel {
+  height: 420px;
+  overflow: hidden;
+}
+
+#hoi-carousel .item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+}
+
+#hoi-carousel video {
+  flex: 1;
+  width: 98%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+  height: auto;
+}
+
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+.control-item {
+  height: 700px;  /* 增加容器高度，给视频更多空间 */
+  display: flex;
+  flex-direction: column;
+}
+
+.control-item .content {
+  flex: 0 0 auto;
+  margin-bottom: 1.5rem;  /* 增加文字和视频的间距 */
+}
+
+.control-item video {
+  flex: 1;
+  width: 100%;  /* 设置宽度为100% */
+  max-height: 600px;  /* 限制最大高度 */
+  object-fit: contain;  /* 确保视频完整显示且保持比例 */
+}
+
+/* 特殊处理第三个unit(两个视频的情况) */
+.control-item .columns {
+  flex: 1;
+  max-height: 600px;
+}
+
+.control-item .columns video {
+  height: 100%;  /* 让两个视频填充columns的高度 */
+  width: 100%;
+  object-fit: contain;
+}
+
+.rainbow-text {
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #8f00ff
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow 5s linear infinite;
+  background-size: 200% auto;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
