@@ -188,7 +188,7 @@ body {
 /* Teaser轮播图样式 */
 /* 第一行：展示v1-v6视频，显示所有视频 */
 #results-carousel-v {
-  height: 210px;
+  height: 190px;
   overflow: hidden;
   margin-bottom: 2px;
   display: flex;
@@ -219,7 +219,7 @@ body {
 
 /* 第二行：展示h1, h2视频，显示所有视频 */
 #results-carousel-h {
-  height: 210px;
+  height: 182px;
   overflow: hidden;
   margin-bottom: 2px;
   display: flex;
@@ -252,7 +252,7 @@ body {
 /* 第三行：展示h3, h4, h5视频，显示所有视频 */
 /* 第一行：展示v1-v6视频，显示所有视频 */
 #results-carousel-h3 {
-  height: 195px;
+  height: 194px;
   overflow: hidden;
   margin-bottom: 2px;
   display: flex;

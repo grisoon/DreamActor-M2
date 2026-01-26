@@ -55,7 +55,35 @@
     }
   </style>
 </head>
+
 <body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    More Research
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="https://grisoon.github.io/DreamActor-M1/">
+                      DreamActor-M1
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </nav>
+
+
 
 
 <section class="hero">
@@ -155,7 +183,7 @@
       <h2 class="subtitle has-text-justified">
         <p>
           We introduce <span class="dnerf">DreamActor-M2</span>, a universal character image animation framework that reformulates motion conditioning as a spatiotemporal in-context learning task.
-          Our design harnesses the inherent generative priors of video foundation models while facilitating a critical evolution toward <strong>pose-free, end-to-end transfer directly from raw videos</strong>. 
+          Our design harnesses the inherent generative priors of video foundation models while facilitating a critical evolution toward <strong>pose-free, end-to-end motion transfer directly from raw videos</strong>. 
           This paradigm eliminates the need for explicit pose estimation, enabling <span class="dnerf">DreamActor-M2</span> to achieve exceptional generalization and high-fidelity results across diverse and complex scenarios.
         </p>
       </h2>
@@ -164,22 +192,27 @@
       <div id="results-carousel-v" class="results-carousel">
         <div class="item">
           <video id="teaser-v1" autoplay controls muted loop playsinline>
-            <source src="./static/videos/Teasers/hoi_1.mp4" type="video/mp4">
+            <source src="./static/videos/Teasers/hoi_5.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item">
           <video id="teaser-v2" autoplay controls muted loop playsinline>
-            <source src="./static/videos/Teasers/multi_5.mp4" type="video/mp4">
+            <source src="./static/videos/Teasers/halfbody2fullbody_3.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item">
           <video id="teaser-h1" autoplay controls muted loop playsinline>
-            <source src="./static/videos/Teasers/hoi_2.mp4" type="video/mp4">
+            <source src="./static/videos/Teasers/nonhuman2human_4.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item">
           <video id="teaser-h3" autoplay controls muted loop playsinline>
-            <source src="./static/videos/Teasers/human2nonhuman_1.mp4" type="video/mp4">
+            <source src="./static/videos/Teasers/nonhuman2human_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-h3" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/multi_1.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -188,22 +221,27 @@
       <div id="results-carousel-h" class="carousel results-carousel">
         <div class="item">
           <video id="teaser-v3" autoplay controls muted loop playsinline>
-            <source src="./static/videos/Teasers/nonhuman2human_4.mp4" type="video/mp4">
+            <source src="./static/videos/Teasers/hoi_1.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item">
           <video id="teaser-v4" autoplay controls muted loop playsinline>
-            <source src="./static/videos/Teasers/nonhuman2human_1.mp4" type="video/mp4">
+            <source src="./static/videos/Teasers/nonhuman2nonhuman_3.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item">
           <video id="teaser-h1" autoplay controls muted loop playsinline>
-            <source src="./static/videos/Teasers/hoi_3.mp4" type="video/mp4">
+            <source src="./static/videos/Teasers/human2nonhuman_4.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item">
           <video id="teaser-h4" autoplay controls muted loop playsinline>
-            <source src="./static/videos/Teasers/nonhuman2nonhuman_6.mp4" type="video/mp4">
+            <source src="./static/videos/Teasers/multi_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-h4" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/hoi_2.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -212,17 +250,22 @@
       <div id="results-carousel-h3" class="carousel results-carousel">
         <div class="item">
           <video id="teaser-v5" autoplay controls muted loop playsinline>
-            <source src="./static/videos/Teasers/nonhuman2nonhuman_3.mp4" type="video/mp4">
+            <source src="./static/videos/Teasers/nonhuman2nonhuman_9.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item">
           <video id="teaser-v6" autoplay controls muted loop playsinline>
+            <source src="./static/videos/Teasers/nonhuman2nonhuman_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video id="teaser-h5" autoplay controls muted loop playsinline>
             <source src="./static/videos/Teasers/nonhuman2nonhuman_4.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item">
           <video id="teaser-h2" autoplay controls muted loop playsinline>
-            <source src="./static/videos/Teasers/multi_1.mp4" type="video/mp4">
+            <source src="./static/videos/Teasers/nonhuman2nonhuman_6.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item">
@@ -295,12 +338,12 @@
     <div id="character-carousel" class="carousel results-carousel">
       <div class="item">
         <video id="character1" autoplay controls muted loop playsinline>
-          <source src="./static/videos/character_images/human2nonhuman_4.mp4" type="video/mp4">
+          <source src="./static/videos/character_images/human2nonhuman_5.mp4" type="video/mp4">
         </video>
       </div>
       <div class="item">
         <video id="character2" autoplay controls muted loop playsinline>
-          <source src="./static/videos/character_images/human2nonhuman_5.mp4" type="video/mp4">
+          <source src="./static/videos/character_images/human2nonhuman_1.mp4" type="video/mp4">
         </video>
       </div>
       <div class="item">
@@ -353,21 +396,21 @@
           <source src="./static/videos/reference_videos/nonhuman2human_3.mp4" type="video/mp4">
         </video>
       </div>
-      <div class="item">
+      <!-- <div class="item">
         <video id="reference2" autoplay controls muted loop playsinline>
           <source src="./static/videos/reference_videos/nonhuman2nonhuman_1.mp4" type="video/mp4">
         </video>
-      </div>
+      </div> -->
       <div class="item">
         <video id="reference3" autoplay controls muted loop playsinline>
           <source src="./static/videos/reference_videos/nonhuman2nonhuman_8.mp4" type="video/mp4">
         </video>
       </div>
-      <div class="item">
+      <!-- <div class="item">
         <video id="reference4" autoplay controls muted loop playsinline>
           <source src="./static/videos/reference_videos/nonhuman2nonhuman_9.mp4" type="video/mp4">
         </video>
-      </div>
+      </div> -->
       <div class="item">
         <video id="reference5" autoplay controls muted loop playsinline>
           <source src="./static/videos/reference_videos/nonhuman2nonhuman_2.mp4" type="video/mp4">
@@ -400,17 +443,17 @@
     <div id="multiples-carousel" class="carousel results-carousel">
       <div class="item">
         <video id="multiples1" autoplay controls muted loop playsinline>
-          <source src="./static/videos/multiples/multi_2.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="item">
-        <video id="multiples2" autoplay controls muted loop playsinline>
           <source src="./static/videos/multiples/multi_9.mp4" type="video/mp4">
         </video>
       </div>
       <div class="item">
-        <video id="multiples3" autoplay controls muted loop playsinline>
+        <video id="multiples2" autoplay controls muted loop playsinline>
           <source src="./static/videos/multiples/multi_6.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video id="multiples3" autoplay controls muted loop playsinline>
+          <source src="./static/videos/multiples/multi_5.mp4" type="video/mp4">
         </video>
       </div>
       <div class="item">
@@ -440,7 +483,7 @@
       </div>
       <div class="item">
         <video id="hoi2" autoplay controls muted loop playsinline>
-          <source src="./static/videos/hoi/hoi_5.mp4" type="video/mp4">
+          <source src="./static/videos/hoi/hoi_3.mp4" type="video/mp4">
         </video>
       </div>
       <div class="item">
@@ -473,11 +516,11 @@
       </p>
     </div>
     <div id="shots-carousel" class="carousel results-carousel">
-      <div class="item">
+      <!-- <div class="item">
         <video id="shots1" autoplay controls muted loop playsinline>
           <source src="./static/videos/shots/halfbody2fullbody_3.mp4" type="video/mp4">
         </video>
-      </div>
+      </div> -->
       <div class="item">
         <video id="shots2" autoplay controls muted loop playsinline>
           <source src="./static/videos/shots/halfbody2fullbody_2.mp4" type="video/mp4">
@@ -489,6 +532,11 @@
         </video>
       </div>
       <div class="item">
+        <video id="shots6" autoplay controls muted loop playsinline>
+          <source src="./static/videos/shots/halfbody2fullbody_1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
         <video id="shots4" autoplay controls muted loop playsinline>
           <source src="./static/videos/shots/fullbody2halfbody_3.mp4" type="video/mp4">
         </video>
@@ -496,11 +544,6 @@
       <div class="item">
         <video id="shots5" autoplay controls muted loop playsinline>
           <source src="./static/videos/shots/fullbody2halfbody_2.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="item">
-        <video id="shots6" autoplay controls muted loop playsinline>
-          <source src="./static/videos/shots/halfbody2fullbody_1.mp4" type="video/mp4">
         </video>
       </div>
     </div>
@@ -514,28 +557,28 @@
     </div>
     <div id="complex-carousel" class="carousel results-carousel">
       <div class="item">
+        <video id="complex5" autoplay controls muted loop playsinline>
+          <source src="./static/videos/complex_motions/complex_5.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
         <video id="complex1" autoplay controls muted loop playsinline>
           <source src="./static/videos/complex_motions/complex_1.mp4" type="video/mp4">
         </video>
       </div>
       <div class="item">
         <video id="complex2" autoplay controls muted loop playsinline>
-          <source src="./static/videos/complex_motions/complex_2.mp4" type="video/mp4">
+          <source src="./static/videos/complex_motions/complex_3.mp4" type="video/mp4">
         </video>
       </div>
       <div class="item">
         <video id="complex3" autoplay controls muted loop playsinline>
-          <source src="./static/videos/complex_motions/complex_3.mp4" type="video/mp4">
+          <source src="./static/videos/complex_motions/complex_2.mp4" type="video/mp4">
         </video>
       </div>
       <div class="item">
         <video id="complex4" autoplay controls muted loop playsinline>
           <source src="./static/videos/complex_motions/complex_4.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="item">
-        <video id="complex5" autoplay controls muted loop playsinline>
-          <source src="./static/videos/complex_motions/complex_5.mp4" type="video/mp4">
         </video>
       </div>
     </div>
